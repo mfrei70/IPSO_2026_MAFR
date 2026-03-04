@@ -1,1 +1,21 @@
+name: Generate PDF
+on: [push] # Wird bei jedem Commit/Push ausgelöst
+
+jobs:
+  converttopdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build PDF from Markdown
+        uses: baileyjm02/markdown-to-pdf@v1
+        with:
+          input_path: docs/meine-datei.md
+          output_dir: output/
+          
+      - name: Upload PDF as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Dokumentation
+          path: output/meine-datei.pdf
 
