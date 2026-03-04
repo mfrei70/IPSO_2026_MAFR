@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Pandoc
-        run: sudo apt-get install pandoc
+      - name: Install TeX Live
+        run: sudo apt-get install texlive
       - name: Convert Markdown to PDF
         run: pdflatex README.md -o document.pdf
       - name: Upload PDF
