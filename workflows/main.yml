@@ -10,7 +10,7 @@ jobs:
       - name: Build PDF from Markdown
         uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_path: docs/meine-datei.md
+          input_path: Dev/temp.txt
           output_dir: output/
           
       - name: Upload PDF as Artifact
