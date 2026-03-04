@@ -4,13 +4,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Pandoc
         run: sudo apt-get install pandoc
       - name: Convert Markdown to PDF
         run: pandoc README.md -o document.pdf
       - name: Upload PDF
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pdf-dokument
           path: document.pdf
