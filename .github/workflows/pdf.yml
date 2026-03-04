@@ -1,15 +1,27 @@
-name: Generate PDF
-on: [push] # Wird bei jedem Push/Commit ausgeführt
+# .github/workflows/convert-to-pdf.yml
+
+name: Docs to PDF
+# Wird bei jedem Push/Commit ausgeführt.
+on:
+  push:
+    branches:
+      - main
+    # Paths can be used to only trigger actions when you have edited certain files, such as a file within the /docs directory
+    paths:
+      - 'docs/**.md'
+      - 'docs/images/**'
+
 jobs:
-  build:
+  converttopdf:
+    name: Build PDF
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_path: dev
-          output_dir: output
+          input_dir: docs
+          output_dir: pdfs
       - uses: actions/upload-artifact@v4 # Speichert das PDF als Download
         with:
-          name: PDF-Dokument
-          path: output
+          name: docs
+          path: pdfs
