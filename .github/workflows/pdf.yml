@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_path: docs/readme.md
+          input_path: dev
           output_dir: output
       - uses: actions/upload-artifact@v4 # Speichert das PDF als Download
         with:
